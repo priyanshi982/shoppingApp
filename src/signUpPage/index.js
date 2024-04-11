@@ -13,10 +13,7 @@ const SignUpPage = props => {
     animationType="slide"
     transparent={true}
     visible={modalVisible}
-    onRequestClose={() => {
-      Alert.alert('Modal has been closed.');
-      setModalVisible(!modalVisible);
-    }}>
+ >
     <View style={styles.headerContainer}>
       <View style={styles.availableTitle}>
         <Text style={styles.pointStyle}>{txt}</Text>
