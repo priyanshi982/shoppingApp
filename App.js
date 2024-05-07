@@ -1,18 +1,24 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * MainApp
  *
  * @format
  */
 
 import React from 'react';
-import HomePage from './src';
+import {StackNavigator} from './src/navigation/stackNavigator';
+import {BottomBarNavigator} from './src/navigation/bottomBarNavigator';
+import {useSelector} from 'react-redux';
 
-const  App =()=> {
-  
+const App = () => {
+  const {data = {}} = useSelector(state => state?.reducer?.loginData);
+  const isLoginPage = data?.isLogined;
+
   return (
-   <HomePage/>
+    <>
+      {!isLoginPage && <StackNavigator />}
+      {isLoginPage && <BottomBarNavigator />}
+    </>
   );
-}
+};
 
 export default App;
